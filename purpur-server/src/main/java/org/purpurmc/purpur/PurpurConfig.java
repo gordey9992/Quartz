@@ -40,15 +40,11 @@ import org.purpurmc.purpur.task.TPSBarTask;
 
 @SuppressWarnings("unused")
 public class PurpurConfig {
-    private static final String HEADER = "This is the main configuration file for Purpur.\n"
-            + "As you can see, there's tons to configure. Some options may impact gameplay, so use\n"
-            + "with caution, and make sure you know what each option does before configuring.\n"
+    private static final String HEADER = "Это основной конфигурационный файл для Quartz.\n"
+            + "Как вы видите, здесь многое предстоит настроить. Некоторые параметры могут повлиять на игровой процесс, поэтому используйте\n"
+            + "с осторожностью и перед настройкой убедитесь, что вы знаете, что делает каждый параметр.\n"
             + "\n"
-            + "If you need help with the configuration or have any questions related to Purpur,\n"
-            + "join us in our Discord guild.\n"
             + "\n"
-            + "Website: https://purpurmc.org \n"
-            + "Docs: https://purpurmc.org/docs \n";
     private static File CONFIG_FILE;
     public static YamlConfiguration config;
 
@@ -64,7 +60,7 @@ public class PurpurConfig {
             config.load(CONFIG_FILE);
         } catch (IOException ignore) {
         } catch (InvalidConfigurationException ex) {
-            Bukkit.getLogger().log(Level.SEVERE, "Could not load purpur.yml, please correct your syntax errors", ex);
+            Bukkit.getLogger().log(Level.SEVERE, "Не удалось загрузить purpur.yml, пожалуйста, исправьте синтаксические ошибки", ex);
             throw Throwables.propagate(ex);
         }
         config.options().header(HEADER);
@@ -172,7 +168,7 @@ public class PurpurConfig {
         return builder.build();
     }
 
-    public static String cannotRideMob = "<red>You cannot mount that mob";
+    public static String cannotRideMob = "<red>Ты не сможешь оседлать этого моба";
     public static String afkBroadcastAway = "<yellow><italic>%s теперь АФК";
     public static String afkBroadcastBack = "<yellow><italic>%s больше не АФК";
     public static boolean afkBroadcastUseDisplayName = false;
@@ -229,7 +225,7 @@ public class PurpurConfig {
         deathMessageOnlyBroadcastToAffectedPlayer = getBoolean("settings.broadcasts.death.only-broadcast-to-affected-player", deathMessageOnlyBroadcastToAffectedPlayer);
     }
 
-    public static String serverModName = io.papermc.paper.ServerBuildInfo.buildInfo().brandName();
+    public static String serverModName = "Quartz";
     private static void serverModName() {
         serverModName = getString("settings.server-mod-name", serverModName);
     }
