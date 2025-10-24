@@ -173,23 +173,22 @@ public class PurpurConfig {
     }
 
     public static String cannotRideMob = "<red>You cannot mount that mob";
-    public static String afkBroadcastAway = "<yellow><italic>%s is now AFK";
-    public static String afkBroadcastBack = "<yellow><italic>%s is no longer AFK";
+    public static String afkBroadcastAway = "<yellow><italic>%s теперь АФК";
+    public static String afkBroadcastBack = "<yellow><italic>%s больше не АФК";
     public static boolean afkBroadcastUseDisplayName = false;
     public static String afkTabListPrefix = "[AFK] ";
     public static String afkTabListSuffix = "";
-    public static String creditsCommandOutput = "<green>%s has been shown the end credits";
-    public static String demoCommandOutput = "<green>%s has been shown the demo screen";
-    public static String pingCommandOutput = "<green>%s's ping is %sms";
-    public static String ramCommandOutput = "<green>Ram Usage: <used>/<xmx> (<percent>)";
-    public static String rambarCommandOutput = "<green>Rambar toggled <onoff> for <target>";
-    public static String tpsbarCommandOutput = "<green>Tpsbar toggled <onoff> for <target>";
-    public static String dontRunWithScissors = "<red><italic>Don't run with scissors!";
-    public static String uptimeCommandOutput = "<green>Server uptime is <uptime>";
-    public static String unverifiedUsername = "default";
-    public static String sleepSkippingNight = "default";
-    public static String sleepingPlayersPercent = "default";
-    public static String sleepNotPossible = "default";
+    public static String creditsCommandOutput = "<green>Игроку %s были показаны финальные титры";
+    public static String demoCommandOutput = "<green>Игроку %s был показан демонстрационный экран";
+    public static String pingCommandOutput = "<green>Пинг игрока %s: %s мс";
+    public static String ramCommandOutput = "<green>Использование оперативной памяти:<used>/<xmx> (<percent>)";
+    public static String tpsbarCommandOutput = "<green>TPS-панель <onoff> для игрока <target>";
+    public static String dontRunWithScissors = "<red><italic>Не бегай с ножницами!";
+    public static String uptimeCommandOutput = "<green>Время безотказной работы сервера составляет <uptime>";
+    public static String unverifiedUsername = "Игрок";
+    public static String sleepSkippingNight = "Ночь пропущена";
+    public static String sleepingPlayersPercent = "Спящих игроков: %s%%";
+    public static String sleepNotPossible = "Сейчас нельзя спать";
     private static void messages() {
         cannotRideMob = getString("settings.messages.cannot-ride-mob", cannotRideMob);
         afkBroadcastAway = getString("settings.messages.afk-broadcast-away", afkBroadcastAway);
@@ -211,8 +210,8 @@ public class PurpurConfig {
         sleepNotPossible = getString("settings.messages.sleep-not-possible", sleepNotPossible);
     }
 
-    public static String deathMsgRunWithScissors = "<player> slipped and fell on their shears";
-    public static String deathMsgStonecutter = "<player> has sawed themself in half";
+    public static String deathMsgRunWithScissors = "<player> поскользнулся и упал на ножницы";
+    public static String deathMsgStonecutter = "<player> распилил себя пополам";
     private static void deathMessages() {
         deathMsgRunWithScissors = getString("settings.messages.death-message.run-with-scissors", deathMsgRunWithScissors);
         deathMsgStonecutter = getString("settings.messages.death-message.stonecutter", deathMsgStonecutter);
@@ -250,7 +249,7 @@ public class PurpurConfig {
         disableGiveCommandDrops = getBoolean("settings.disable-give-dropping", disableGiveCommandDrops);
     }
 
-    public static String commandRamBarTitle = "<gray>Ram<yellow>:</yellow> <used>/<xmx> (<percent>)";
+    public static String commandRamBarTitle = "<gray>ОЗУ<yellow>:</yellow> <used>/<xmx> (<percent>)";
     public static BossBar.Overlay commandRamBarProgressOverlay = BossBar.Overlay.NOTCHED_20;
     public static BossBar.Color commandRamBarProgressColorGood = BossBar.Color.GREEN;
     public static BossBar.Color commandRamBarProgressColorMedium = BossBar.Color.YELLOW;
@@ -351,6 +350,10 @@ public class PurpurConfig {
             oldValue = getBoolean("settings.large-ender-chests", true);
             set("settings.blocks.ender_chest.six-rows", oldValue);
             set("settings.large-ender-chests", null);
+        }
+        public static boolean quartzOptimizedExplosions = true;
+        private static void quartzOptimizations() {
+        quartzOptimizedExplosions = getBoolean("settings.quartz.optimized-explosions", quartzOptimizedExplosions);
         }
         if (version < 20) {
             boolean oldValue = getBoolean("settings.blocks.barrel.six-rows", false);
